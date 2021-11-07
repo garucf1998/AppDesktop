@@ -60,7 +60,7 @@ public class GUIPhieuDichVu extends JFrame implements MouseListener,ActionListen
 	private JMenu mnFile;
 	private JMenu mnEdit;
 	private JMenu mnHelp;
-	
+	 
 	private TaiKhoan mTaiKhoan;
 	private NhanVien mNhanVien;
 	private BenhNhan mBenhNhan;

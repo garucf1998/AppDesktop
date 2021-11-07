@@ -69,7 +69,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 	private NhanVien mNhanVien;
 	private BenhNhan mBenhNhan;
 	private LichHen mLichHen;
-	
+	 
 	private PhieuKhamService phieuKhamService;
 	private BenhNhanService benhnhanservice;
 	

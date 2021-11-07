@@ -26,6 +26,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Service.BenhNhanService;
+import Service.GuiBenhNhan;
 import Service.LichHenService;
 import Service.NhanVienService;
 import enity.BenhNhan;
@@ -33,6 +34,7 @@ import enity.LichHen;
 import enity.NhanVien;
 import enity.TaiKhoan;
 
+import javax.jms.JMSException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -49,7 +51,7 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 	private BenhNhan mBenhNhan;
 	private LichHen mLichHen;
 	private LichHenService lichhenservice;
-	private JButton btnhuy;
+	private JButton btnhuy,btnChuyen;
 	private JButton btncapnhat;
 
 	
@@ -106,9 +108,17 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 		btncapnhat.setBounds(695, 545, 226, 57);
 		contentPane.add(btncapnhat);
 		
+		btnChuyen = new JButton("Chuyển lên hàng đợi");
+		btnChuyen.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnChuyen.setBounds(405, 545, 239, 57);
+		contentPane.add(btnChuyen);
+		
 		table.addMouseListener(this);
 		btncapnhat.addActionListener(this);
 		btnhuy.addActionListener(this);
+		btnChuyen.addActionListener(this);
+		
+		btnChuyen.setEnabled(false);
 		
 		removeTable();
 		updateTableData();
@@ -118,13 +128,29 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object o= e.getSource();
+		GuiBenhNhan gui=new GuiBenhNhan();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String date="";
+        date = formatter.format(java.util.Calendar.getInstance().getTime());
 		if(o==btnhuy) {
 			dispose();
 			GUIChucNang cn=new GUIChucNang(mTaiKhoan, mNhanVien);
 			cn.setVisible(true);
 		} else if (o==btncapnhat) {
+			btnChuyen.setEnabled(false);
 			removeTable();
 			updateTableData();
+		}else if(o==btnChuyen) {
+			if(mLichHen!=null) {
+				try {
+					gui.sendMessage(mLichHen, date);
+				} catch (JMSException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				mLichHen.setTrangThai("Đang chờ khám");
+			}
+			btnChuyen.setEnabled(false);
 		}
 	}
 
@@ -144,9 +170,7 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 		mBenhNhan=mLichHen.getBenhNhan();
 		if(!table.getValueAt(row, 4).toString().equals("Đã khám")) 
 		{
-			dispose();
-			GUIPhieuKhamBenh pkb= new GUIPhieuKhamBenh(mTaiKhoan, mNhanVien,mBenhNhan,mLichHen);
-			pkb.setVisible(true);
+			btnChuyen.setEnabled(true);
 		}
 		else 
 			JOptionPane.showMessageDialog(this,"Bệnh nhân này đã khám rồi !","Chú ý",JOptionPane.CLOSED_OPTION);
@@ -185,7 +209,8 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			String date="";
 	        date = formatter.format(java.util.Calendar.getInstance().getTime());
-			list.addAll(lichhenservice.GetLichHenNhanVien(date,mNhanVien.getId()));
+	        System.out.println(mNhanVien.getId());
+			list.addAll(lichhenservice.GetAllLichHenByDate(date));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

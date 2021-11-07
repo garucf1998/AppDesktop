@@ -23,13 +23,14 @@ import enity.PhieuKhambenh;
 
 public class LichHenService {
 	
-	static String POST_LICH_HEN="http://13.250.190.43:5001/lichhen/insert";
-	static String GET_ONE_LICH_HEN="http://13.250.190.43:5001/lichhen/getone";
-	static String GET_ALL_LICH_HEN_BY_BN="http://13.250.190.43:5001/lichhen/getlichhenbybn";
-	static String GET_ALL_LICH_HEN_BY_DATE="http://13.250.190.43:5001/lichhen/getlichhenbydate";
-	static String PUT_LICH_HEN="http://13.250.190.43:5001/lichhen/update";
-	static String GET_LICH_HEN_TRONG_NGAY_BN="http://13.250.190.43:5001/lichhen/ktralichhenbn";
-	static String GET_LICH_HEN_TRONG_NGAY_NHAN_VIEN="http://13.250.190.43:5001/lichhen/ktralichhennv";
+	static String url="http://localhost:5001";
+	static String POST_LICH_HEN=url+"/lichhen/insert";
+	static String GET_ONE_LICH_HEN=url+"/lichhen/getone";
+	static String GET_ALL_LICH_HEN_BY_BN=url+"/lichhen/getlichhenbybn";
+	static String GET_ALL_LICH_HEN_BY_DATE=url+"/lichhen/getlichhenbydate";
+	static String PUT_LICH_HEN=url+"/lichhen/update";
+	static String GET_LICH_HEN_TRONG_NGAY_BN=url+"/lichhen/ktralichhenbn";
+	static String GET_LICH_HEN_TRONG_NGAY_NHAN_VIEN=url+"/lichhen/ktralichhennv";
 	
 	
 	/**

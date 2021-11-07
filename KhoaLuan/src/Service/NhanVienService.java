@@ -33,15 +33,17 @@ public class NhanVienService {
 //	static String GET_NHAN_VIEN_THEO_CMND="http://13.212.45.136:5001/nhanvien/getbycmnd";
 //	static String GET_ONE_ROLE="http://13.212.45.136:5001/role/getone";
 	
-	static String GET_ALL_NHAN_VIEN="http://13.250.190.43:5001/nhanvien/getall";
-	static String PUT_NHAN_VIEN="http://13.250.190.43:5001/nhanvien/update";
-	static String POST_NHAN_VIEN="http://13.250.190.43:5001/nhanvien/insert";
-	static String GET_NHAN_VIEN_THEO_TEN="http://13.250.190.43:5001/nhanvien/getbyname";
-	static String GET_NHAN_VIEN_THEO_SDT="http://13.250.190.43:5001/nhanvien/getbysdt";
-	static String GET_NHAN_VIEN_THEO_TAI_KHOAN="http://13.250.190.43:5001/nhanvien/getbytaikhoan";
-	static String GET_NHAN_VIEN_THEO_CMND="http://13.250.190.43:5001/nhanvien/getbycmnd";
-	static String GET_ONE_ROLE="http://13.250.190.43:5001/role/getone";
-	static String GET_NHAN_VIEN_THEO_ROLE="http://13.250.190.43:5001/nhanvien/getbyRole";
+	static String url="http://localhost:5001";
+	
+	static String GET_ALL_NHAN_VIEN=url+"/nhanvien/getall";
+	static String PUT_NHAN_VIEN=url+"/nhanvien/update";
+	static String POST_NHAN_VIEN=url+"/nhanvien/insert";
+	static String GET_NHAN_VIEN_THEO_TEN=url+"/nhanvien/getbyname";
+	static String GET_NHAN_VIEN_THEO_SDT=url+"/nhanvien/getbysdt";
+	static String GET_NHAN_VIEN_THEO_TAI_KHOAN=url+"/nhanvien/getbytaikhoan";
+	static String GET_NHAN_VIEN_THEO_CMND=url+"/nhanvien/getbycmnd";
+	static String GET_ONE_ROLE=url+"/role/getone";
+	static String GET_NHAN_VIEN_THEO_ROLE=url+"/nhanvien/getbyRole";
 	
 	TaiKhoanService taiKhoanController;
 	

@@ -27,6 +27,10 @@
 	<classpathentry kind="lib" path="lib/mail-1.4.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Vien/Documents/HinhAnh/Thu Vien/gson-2.2.2.jar/gson-2.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="lib/entity.jar"/>
+	<classpathentry kind="lib" path="lib/activemq-all-5.16.1.jar"/>
+	<classpathentry kind="lib" path="lib/jaxb-api-2.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/jaxb-runtime-2.3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vien/Desktop/lib JPA/activemq-client-5.16.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vien/Desktop/lib JPA/activemq-pool-5.16.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

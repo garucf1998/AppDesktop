@@ -23,7 +23,7 @@ import enity.TaiKhoan;
 public class GUIDoiMatKhau extends JFrame implements ActionListener{
 
 	/**
-	 * 
+	 *  
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;

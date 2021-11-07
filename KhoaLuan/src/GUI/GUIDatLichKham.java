@@ -57,6 +57,31 @@ import enity.TaiKhoan;
 import javax.swing.JRadioButton;
 import java.awt.event.MouseAdapter;
 
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+import com.google.gson.Gson;
+
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+import javax.swing.JButton;
+import java.util.Date;
+import java.util.Properties;
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
+import javax.jms.Message;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+
 public class GUIDatLichKham extends JFrame implements ActionListener,MouseListener{
 
 	private JPanel contentPane;
@@ -100,6 +125,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 	private JTextArea tattrieuchung,tatghichu;
 	private JButton btncapnhat;
 
+	private static String url =ActiveMQConnection.DEFAULT_BROKER_URL;
 	
 	/**
 	 * Create the frame.
@@ -593,5 +619,26 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				updateTableData();
 			}
 		}
+	}
+	public void Send(BenhNhan a) throws Exception {
+		Date date=java.util.Calendar.getInstance().getTime(); 
+		ConnectionFactory conAMQ = new ActiveMQConnectionFactory();
+		Connection con = conAMQ.createConnection();
+		con.start();
+		
+		
+		Session session = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
+		Destination des = session.createQueue(String.valueOf(date));//input string
+		
+		MessageProducer mProducer = session.createProducer(des);
+		Gson gson = new Gson();
+    		    
+		String json = gson.toJson(a);
+		Message msg=session.createTextMessage();
+
+		msg=session.createTextMessage(json);
+		mProducer.send(msg);
+		session.close();
+		con.close();
 	}
 }

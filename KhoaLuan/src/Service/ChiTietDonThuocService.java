@@ -20,9 +20,11 @@ import enity.Thuoc;
 
 public class ChiTietDonThuocService {
 
-	static String GET_ALL_CHI_TIET_DON_THUOC="http://13.250.190.43:5001/chitietdonthuoc/getall";
-	static String POST_CHI_TIET_DON_THUOC="http://13.250.190.43:5001/chitietdonthuoc/insert";
-	static String GET_ALL_CHI_TIET_DON_THUOC_BY_DON_THUOC="http://13.250.190.43:5001/chitietdonthuoc/getallbydonthuoc";
+	static String url="http://localhost:5001";
+	
+	static String GET_ALL_CHI_TIET_DON_THUOC=url+"/chitietdonthuoc/getall";
+	static String POST_CHI_TIET_DON_THUOC=url+"/chitietdonthuoc/insert";
+	static String GET_ALL_CHI_TIET_DON_THUOC_BY_DON_THUOC=url+"/chitietdonthuoc/getallbydonthuoc";
 
 	/**
 	 * @author Vien

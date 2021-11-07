@@ -16,7 +16,8 @@ import enity.PhieuKhambenh;
 
 public class DonThuocService {
 	
-	static String POST_DON_THUOC="http://13.250.190.43:5001/donthuoc/insert";
+	static String url="http://localhost:5001";
+	static String POST_DON_THUOC=url+"/donthuoc/insert";
 	
 	/**
 	 * @author Vien

@@ -23,11 +23,12 @@ public class PhieuDichVuService {
 //	static String POST_PHIEU_DICH_VU="http://13.212.45.136:5001/phieudichvu/insert";
 //	static String GET_ONE_PHIEU_DICH_VU="http://13.212.45.136:5001/phieudichvu/getone";
 	
-	static String POST_PHIEU_DICH_VU="http://13.250.190.43:5001/phieudichvu/insert";
-	static String GET_ONE_PHIEU_DICH_VU="http://13.250.190.43:5001/phieudichvu/getone";
-	static String GET_ALL_DICH_VU="http://13.250.190.43:5001/dichvu/getall";
-	static String GET_ONE_DICH_VU="http://13.250.190.43:5001/dichvu/getone";
-	static String GET_ALL_BY_PHIEU_KHAM="http://13.250.190.43:5001/phieudichvu/getPhieuDichVuByPhieuKhamBenh";
+	static String url="http://localhost:5001";
+	static String POST_PHIEU_DICH_VU=url+"/phieudichvu/insert";
+	static String GET_ONE_PHIEU_DICH_VU=url+"/phieudichvu/getone";
+	static String GET_ALL_DICH_VU=url+"/dichvu/getall";
+	static String GET_ONE_DICH_VU=url+"/dichvu/getone";
+	static String GET_ALL_BY_PHIEU_KHAM=url+"/phieudichvu/getPhieuDichVuByPhieuKhamBenh";
 	
 	/**
 	 * @author Vien

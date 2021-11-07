@@ -26,27 +26,20 @@ import enity.TaiKhoan;
 
 public class BenhNhanService {
 	
-//	static String GET_ALL_BENH_NHAN="http://13.212.45.136:5001/benhnhan/getall";
-//	static String GET_ALL_PHIEU_KHAM="http://13.212.45.136:5001/benhnhan/getlist";
-//	static String GET_ONE_BENH_NHAN="http://13.212.45.136:5001/benhnhan/getone";
-//	static String PUT_BENH_NHAN="http://13.212.45.136:5001/benhnhan/update";
-//	static String GET_BENH_NHAN_THEO_TEN="http://13.212.45.136:5001/benhnhan/getbyname";
-//	static String GET_BENH_NHAN_THEO_SDT="http://13.212.45.136:5001/benhnhan/getbysdt";
-//	static String GET_BENH_NHAN_THEO_CMND="http://13.212.45.136:5001/benhnhan/getbycmnd";
-//	static String POST_BENH_NHAN="http://13.212.45.136:5001/benhnhan/insert";
-//	static String GET_ONE_ROLE="http://13.212.45.136:5001/role/getone/5";
 	
-	static String GET_ALL_BENH_NHAN="http://13.250.190.43:5001/benhnhan/getall";
-	static String GET_ALL_PHIEU_KHAM="http://13.250.190.43:5001/benhnhan/getlist";
-	static String GET_ONE_BENH_NHAN="http://13.250.190.43:5001/benhnhan/getone";
-	static String PUT_BENH_NHAN="http://13.250.190.43:5001/benhnhan/update";
-	static String GET_BENH_NHAN_THEO_TEN="http://13.250.190.43:5001/benhnhan/getbyname";
-	static String GET_BENH_NHAN_THEO_SDT="http://13.250.190.43:5001/benhnhan/getbysdt";
-	static String GET_BENH_NHAN_THEO_CMND="http://13.250.190.43:5001/benhnhan/getbycmnd";
-	static String GET_BENH_NHAN_THEO_USERNAME="http://13.250.190.43:5001/benhnhan/getbytaikhoan";
-	static String POST_BENH_NHAN="http://13.250.190.43:5001/benhnhan/insert";
-	static String GET_ONE_ROLE="http://13.250.190.43:5001/role/getone/5";
-	static String GET_BENH_NHAN_BY_LICH_HEN="http://13.250.190.43:5001/lichhen/getlichhen";
+	static String url="http://localhost:5001";
+	
+	static String GET_ALL_BENH_NHAN=url+"/benhnhan/getall";
+	static String GET_ALL_PHIEU_KHAM=url+"/benhnhan/getlist";
+	static String GET_ONE_BENH_NHAN=url+"/benhnhan/getone";
+	static String PUT_BENH_NHAN=url+"/benhnhan/update";
+	static String GET_BENH_NHAN_THEO_TEN=url+"/benhnhan/getbyname";
+	static String GET_BENH_NHAN_THEO_SDT=url+"/benhnhan/getbysdt";
+	static String GET_BENH_NHAN_THEO_CMND=url+"/benhnhan/getbycmnd";
+	static String GET_BENH_NHAN_THEO_USERNAME=url+"/benhnhan/getbytaikhoan";
+	static String POST_BENH_NHAN=url+"/benhnhan/insert";
+	static String GET_ONE_ROLE=url+"/role/getone/5";
+	static String GET_BENH_NHAN_BY_LICH_HEN=url+"/lichhen/getlichhen";
 	
 	
 	/**
@@ -61,7 +54,7 @@ public class BenhNhanService {
 	    URL urlForGetRequest = new URL(GET_ALL_BENH_NHAN);
 	    String readLine = null;
 	    HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-	    conection.setRequestMethod("GET"); // set userId its a sample here
+	    conection.setRequestMethod("GET"); 
 	    conection.setRequestProperty("Content-Type", "application/json");
 	    int responseCode = conection.getResponseCode();
 
@@ -78,7 +71,7 @@ public class BenhNhanService {
 	        		    .setDateFormat("yyyy-MM-dd")
 	        		    .create();
 		        JsonParser parser = new JsonParser();
-		        JsonArray object = (JsonArray) parser.parse(response);// response will be the json String
+		        JsonArray object = (JsonArray) parser.parse(response);
 		        BenhNhan[] benhNhanList = gson.fromJson(object, BenhNhan[].class);
 		        	
 		        for(int i=0;i<benhNhanList.length;i++)
@@ -129,7 +122,7 @@ public class BenhNhanService {
 	    System.out.println("POST Response Code :  " + responseCode);
 	    System.out.println("POST Response Message : " + postConnection.getResponseMessage());
 
-	    if (responseCode == HttpURLConnection.HTTP_CREATED) { //success
+	    if (responseCode == HttpURLConnection.HTTP_CREATED) { 
 	        BufferedReader in = new BufferedReader(new InputStreamReader(
 	            postConnection.getInputStream()));
 	        String inputLine;
@@ -139,7 +132,7 @@ public class BenhNhanService {
 	            response.append(inputLine);
 	        } in .close();
 
-	        // print result
+	        
 	        System.out.println(response.toString());
 	    } else {
 	        System.out.println("POST NOT WORKED");
@@ -179,7 +172,7 @@ public class BenhNhanService {
 	    String message=putConnection.getResponseMessage();
 	    
 
-	    if (responseCode == HttpURLConnection.HTTP_CREATED) { //success
+	    if (responseCode == HttpURLConnection.HTTP_CREATED) { 
 	        BufferedReader in = new BufferedReader(new InputStreamReader(
 	            putConnection.getInputStream()));
 	        String inputLine;

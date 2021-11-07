@@ -437,7 +437,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 		
 		updateTableData();
 		
-	}
+	} 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

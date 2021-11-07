@@ -20,10 +20,11 @@ import enity.NhanVien;
 
 public class HoaDonService {
 
-	static String POST_HOA_DON="http://13.250.190.43:5001/hoadon/insert";
-	static String GET_ONE_HOA_DON="http://13.250.190.43:5001/hoadon/getone";
-	static String PUT_HOA_DON="http://13.250.190.43:5001/hoadon/update";
-	static String GET_ALL_HOA_DON_CHUA_THANH_TOAN="http://13.250.190.43:5001/hoadon/getHoaDonChuaThanhToan";
+	static String url="http://localhost:5001";
+	static String POST_HOA_DON=url+"/hoadon/insert";
+	static String GET_ONE_HOA_DON=url+"/hoadon/getone";
+	static String PUT_HOA_DON=url+"/hoadon/update";
+	static String GET_ALL_HOA_DON_CHUA_THANH_TOAN=url+"/hoadon/getHoaDonChuaThanhToan";
 	/**
 	 * @author Vien
 	 * date : 15/5/2021

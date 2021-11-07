@@ -19,8 +19,9 @@ import enity.Thuoc;
 
 public class ThuocService {
 	
-	static String GET_ONE_THUOC="http://13.250.190.43:5001/thuoc/getone";
-	static String GET_ALL_THUOC="http://13.250.190.43:5001/thuoc/getall";
+	static String url="http://localhost:5001";
+	static String GET_ONE_THUOC=url+"/thuoc/getone";
+	static String GET_ALL_THUOC=url+"/thuoc/getall";
 
 	/**
 	 * @author Vien

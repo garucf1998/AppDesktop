@@ -37,7 +37,7 @@ public class GUIChucNang extends JFrame implements ActionListener{
 	private JButton btnlapphieukham;
 	private JButton btncapnhatphieukham;
 	private JButton btndatlichkham;
-	private JButton btndoimatkhau,btndangxuat;
+	private JButton btndoimatkhau,btnxapxep;
 	private JMenuBar menuBar;
 	private JMenu mnFile;
 	private JMenuItem mntmdangXuat;
@@ -169,11 +169,11 @@ public class GUIChucNang extends JFrame implements ActionListener{
 		btnLapHoaDon.setIcon(new ImageIcon("default_document.png"));
 		contentPane.add(btnLapHoaDon);
 		
-		btndangxuat = new JButton("Đăng xuất");
-		btndangxuat.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btndangxuat.setBounds(748, 464, 275, 100);
-		btndangxuat.setIcon(new ImageIcon("default_document.png"));
-		contentPane.add(btndangxuat);
+		btnxapxep = new JButton("Xắp Xếp Lịch Hẹn");
+		btnxapxep.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnxapxep.setBounds(748, 464, 275, 100);
+		btnxapxep.setIcon(new ImageIcon("default_document.png"));
+		contentPane.add(btnxapxep);
 		
 		btndoimatkhau.addActionListener(this);
 		btnqlnhanvien.addActionListener(this);
@@ -183,7 +183,7 @@ public class GUIChucNang extends JFrame implements ActionListener{
 		btndatlichkham.addActionListener(this);
 		btnLapHoaDon.addActionListener(this);
 		btnlapphieudichvu.addActionListener(this);
-		btndangxuat.addActionListener(this);
+		btnxapxep.addActionListener(this);
 		mntmdangXuat.addActionListener(this);
 		mntmThoat.addActionListener(this);
 		
@@ -241,7 +241,7 @@ public class GUIChucNang extends JFrame implements ActionListener{
 		 if(o==btnlapphieukham) 
 		 {
 			 dispose();
-			 GUIDanhSachKhamBenh dskb= new GUIDanhSachKhamBenh(mTaiKhoan,mNhanVien);
+			 GUINhanBenhNhan dskb= new GUINhanBenhNhan(mTaiKhoan,mNhanVien);
 			 dskb.setVisible(true);
 		 }
 		 if(o==btncapnhatphieukham) 
@@ -268,9 +268,9 @@ public class GUIChucNang extends JFrame implements ActionListener{
 			 GUIHoaDon hd= new GUIHoaDon(mTaiKhoan,mNhanVien);
 			 hd.setVisible(true);
 		 }
-		 if(o==btndangxuat) {
+		 if(o==btnxapxep) {
 			 dispose();
-			 GUIDangNhap dn = new GUIDangNhap();
+			 GUIDanhSachKhamBenh dn = new GUIDanhSachKhamBenh(mTaiKhoan,mNhanVien);
 			 dn.setVisible(true);
 		 }
 		

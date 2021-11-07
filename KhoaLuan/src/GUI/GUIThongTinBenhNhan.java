@@ -50,7 +50,7 @@ import enity.TaiKhoan;
 
 public class GUIThongTinBenhNhan extends JFrame implements MouseListener,ActionListener{
 
-	/**
+	/** 
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;

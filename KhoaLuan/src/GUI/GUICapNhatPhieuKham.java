@@ -56,7 +56,7 @@ import enity.TaiKhoan;
 public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseListener{
 	private JPanel contentPane;
 
-	
+	 
 	private TaiKhoan mTaiKhoan;
 	private NhanVien mNhanVien;
 	private BenhNhan mBenhNhan;
