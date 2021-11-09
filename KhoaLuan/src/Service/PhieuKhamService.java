@@ -32,7 +32,6 @@ public class PhieuKhamService {
 	
 	/**
 	 * @author Vien
-	 * date : 17/4/2021
 	 * @return Thêm phiếu khám bệnh vào cơ sở dữ liệu 
 	 * @decripstion : Thêm phiếu khám bệnh bằng cái sử dụng RestFull API
 	 * */
@@ -82,7 +81,6 @@ public class PhieuKhamService {
 
 	/**
 	 * @author Vien
-	 * date : 21/4/2021
 	 * @return Thêm phiếu khám bệnh vào cơ sở dữ liệu 
 	 * @decripstion : Thêm phiếu khám bệnh bằng cách sử dụng RestFull API
 	 * */
@@ -130,7 +128,6 @@ public class PhieuKhamService {
 	}
 	/**
 	 * @author Vien
-	 * date: 21/4/2021
 	 * @return một phiếu khám bệnh
 	 * @decription: Lấy phiếu khám bệnh theo id được gọi về từ RestFullAPI
 	 * */

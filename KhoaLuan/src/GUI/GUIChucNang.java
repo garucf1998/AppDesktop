@@ -169,7 +169,7 @@ public class GUIChucNang extends JFrame implements ActionListener{
 		btnLapHoaDon.setIcon(new ImageIcon("default_document.png"));
 		contentPane.add(btnLapHoaDon);
 		
-		btnxapxep = new JButton("Xắp Xếp Lịch Hẹn");
+		btnxapxep = new JButton("Hàng đợi");
 		btnxapxep.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnxapxep.setBounds(748, 464, 275, 100);
 		btnxapxep.setIcon(new ImageIcon("default_document.png"));
@@ -191,6 +191,7 @@ public class GUIChucNang extends JFrame implements ActionListener{
 			btnqlnhanvien.setEnabled(false);
 			btndatlichkham.setEnabled(false);
 			btnLapHoaDon.setEnabled(false);
+			btnxapxep.setEnabled(false);
 		}else if (mNhanVien.getTaiKhoan().getRole().getName().equals("Quản Lý"))
 		{
 			btncapnhatphieukham.setEnabled(false);
@@ -199,6 +200,7 @@ public class GUIChucNang extends JFrame implements ActionListener{
 			btnlapphieudichvu.setEnabled(false);
 			btnlapphieukham.setEnabled(false);
 			btnqlbenhnhan.setEnabled(false);
+			btnxapxep.setEnabled(false);
 		}else if (mNhanVien.getTaiKhoan().getRole().getName().equals("Nhân Viên Tiếp Tân"))
 		{
 			btncapnhatphieukham.setEnabled(false);

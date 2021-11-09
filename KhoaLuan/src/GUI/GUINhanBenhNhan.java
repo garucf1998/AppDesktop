@@ -62,6 +62,7 @@ public class GUINhanBenhNhan extends JFrame implements ActionListener{
 	private JButton btnnhan,btnkham;
 	private TaiKhoan mTaiKhoan;
 	private NhanVien mNhanVien;
+	private LichHen bn = new LichHen();
 
 	/**
 	 * Launch the application.
@@ -272,7 +273,7 @@ public class GUINhanBenhNhan extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		Object o=e.getSource();
 		NhanBenhNhan nhan= new NhanBenhNhan();
-		LichHen bn = new LichHen();
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String date="";
         date = formatter.format(java.util.Calendar.getInstance().getTime());

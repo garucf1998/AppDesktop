@@ -32,5 +32,6 @@
 	<classpathentry kind="lib" path="lib/jaxb-runtime-2.3.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Vien/Desktop/lib JPA/activemq-client-5.16.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Vien/Desktop/lib JPA/activemq-pool-5.16.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vien/Desktop/lib JPA/commons-pool2-2.9.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

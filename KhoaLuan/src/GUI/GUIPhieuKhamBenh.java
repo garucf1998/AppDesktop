@@ -85,7 +85,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 	private JRadioButton rdbhoanthanh;
 	private JRadioButton rdbchuahoanthanh;
 	private JLabel lblmaBN;
-	private JButton btnhuy;
+//	private JButton btnhuy;
 	private JButton btnluu;
 	private JComboBox comboBox;
 
@@ -306,11 +306,11 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 					}
 				});
 				
-				btnhuy = new JButton("Quay Lại");
-				btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
-				btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				btnhuy.setBounds(977, 564, 155, 57);
-				contentPane.add(btnhuy);
+//				btnhuy = new JButton("Quay Lại");
+//				btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
+//				btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
+//				btnhuy.setBounds(977, 564, 155, 57);
+//				contentPane.add(btnhuy);
 				
 				btnluu = new JButton("Lưu");
 				btnluu.setIcon(new ImageIcon("luu.png"));
@@ -321,7 +321,7 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 			comboBox.setEnabled(false);
 			
 				
-			btnhuy.addActionListener(this);
+//			btnhuy.addActionListener(this);
 			btnluu.addActionListener(this);
 			comboBox.setSelectedItem(mBenhNhan.getId());
 	}
@@ -332,13 +332,14 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 		// TODO Auto-generated method stub
 		Object o=e.getSource();
 		int ketquaPost=0;
-		if(o==btnhuy)
-		{
-			dispose();
-			GUIChucNang ft= new GUIChucNang(mTaiKhoan,mNhanVien);
-			ft.setVisible(true);
-		}
-		else if(o==btnluu) 
+//		if(o==btnhuy)
+//		{
+//			dispose();
+//			GUIChucNang ft= new GUIChucNang(mTaiKhoan,mNhanVien);
+//			ft.setVisible(true);
+//		}
+//		else 
+			if(o==btnluu) 
 		{
 			PhieuKhambenh pk= new PhieuKhambenh();
 			PhieuKhambenh pkketqua= new PhieuKhambenh();

@@ -134,9 +134,7 @@ public class BenhNhanService {
 
 	        
 	        System.out.println(response.toString());
-	    } else {
-	        System.out.println("POST NOT WORKED");
-	    }
+	    } 
 	    return responseCode;
 	}
 	//[End POST Request]
@@ -182,7 +180,6 @@ public class BenhNhanService {
 	            response.append(inputLine);
 	        } in .close();
 
-	        // print result
 	        System.out.println(response.toString());
 	    } else {
 	        System.out.println("PUT NOT WORKED");
@@ -214,7 +211,7 @@ public class BenhNhanService {
 		URL urlForGetRequest = new URL(GET_ONE_ROLE);
 		String readLine = null;
 		HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-		conection.setRequestMethod("GET"); // set userId its a sample here
+		conection.setRequestMethod("GET"); 
 		conection.setRequestProperty("Content-Type", "application/json");
 		int responseCode = conection.getResponseCode();
 
@@ -421,7 +418,7 @@ public class BenhNhanService {
 	    URL urlForGetRequest = new URL(GET_ALL_PHIEU_KHAM+"/"+id);
 	    String readLine = null;
 	    HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-	    conection.setRequestMethod("GET"); // set userId its a sample here
+	    conection.setRequestMethod("GET"); 
 	    conection.setRequestProperty("Content-Type", "application/json");
 	    int responseCode = conection.getResponseCode();
 
@@ -438,7 +435,7 @@ public class BenhNhanService {
 	        		    .setDateFormat("yyyy-MM-dd")
 	        		    .create();
 		        JsonParser parser = new JsonParser();
-		        JsonArray object = (JsonArray) parser.parse(response);// response will be the json String
+		        JsonArray object = (JsonArray) parser.parse(response);
 		        PhieuKhambenh[] phieuKhambenhs = gson.fromJson(object, PhieuKhambenh[].class);
 		        	
 		        for(int i=0;i<phieuKhambenhs.length;i++)
@@ -469,7 +466,7 @@ public class BenhNhanService {
 	    URL urlForGetRequest = new URL(GET_BENH_NHAN_BY_LICH_HEN+"/"+date+"/"+id);
 	    String readLine = null;
 	    HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-	    conection.setRequestMethod("GET"); // set userId its a sample here
+	    conection.setRequestMethod("GET"); 
 	    conection.setRequestProperty("Content-Type", "application/json");
 	    int responseCode = conection.getResponseCode();
 
@@ -510,7 +507,7 @@ public class BenhNhanService {
 		URL urlForGetRequest = new URL(GET_BENH_NHAN_THEO_USERNAME+"/"+user);
 		String readLine = null;
 		HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-		conection.setRequestMethod("GET"); // set userId its a sample here
+		conection.setRequestMethod("GET"); 
 		conection.setRequestProperty("Content-Type", "application/json");
 		int responseCode = conection.getResponseCode();
 

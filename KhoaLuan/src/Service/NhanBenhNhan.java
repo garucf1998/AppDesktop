@@ -13,7 +13,8 @@ import enity.LichHen;
 
 public class NhanBenhNhan {
 
-	 private final static String WIRE_LEVEL_ENDPOINT = "ssl://b-653b52d4-e892-435f-8e6c-d154d9c3dc86-1.mq.us-east-2.amazonaws.com:61617";
+	 private final static String WIRE_LEVEL_ENDPOINT 
+	 = "ssl://b-e2537eb7-0dac-4607-8905-d26162943aa4-1.mq.us-east-2.amazonaws.com:61617";
 	 private final static String ACTIVE_MQ_USERNAME = "admin";
 	 private final static String ACTIVE_MQ_PASSWORD = "admin20212021";
 

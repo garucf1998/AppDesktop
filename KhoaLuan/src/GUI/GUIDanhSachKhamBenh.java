@@ -149,6 +149,12 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 					e1.printStackTrace();
 				}
 				mLichHen.setTrangThai("Đang chờ khám");
+				try {
+					lichhenservice.PUTLichHen(mLichHen);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 			btnChuyen.setEnabled(false);
 		}
@@ -168,7 +174,7 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 			e2.printStackTrace();
 		}
 		mBenhNhan=mLichHen.getBenhNhan();
-		if(!table.getValueAt(row, 4).toString().equals("Đã khám")) 
+		if(!table.getValueAt(row, 4).toString().equals("Đã khám")||!table.getValueAt(row, 4).toString().equals("Đang chờ khám")) 
 		{
 			btnChuyen.setEnabled(true);
 		}
