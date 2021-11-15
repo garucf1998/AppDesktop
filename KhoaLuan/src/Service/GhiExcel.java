@@ -12,6 +12,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.CellReference;
 
 import enity.HoaDon;
 
@@ -45,11 +46,11 @@ public class GhiExcel {
         cell.setCellValue("ID");
         cell.setCellStyle(style);
        
-        cell = row.createCell(2, CellType.STRING);
+        cell = row.createCell(1, CellType.STRING);
         cell.setCellValue("Tổng tiền");
         cell.setCellStyle(style);
         
-        cell = row.createCell(3, CellType.STRING);
+        cell = row.createCell(2, CellType.STRING);
         cell.setCellValue("Tên nhân viên");
         cell.setCellStyle(style);
       
@@ -62,15 +63,16 @@ public class GhiExcel {
 
             cell = row.createCell(0, CellType.STRING);
             cell.setCellValue(hd.getId());
-       
-            cell = row.createCell(1, CellType.STRING);
-            cell.setCellValue(hd.getNgayTao());
    
-            cell = row.createCell(2, CellType.STRING);
+            cell = row.createCell(1, CellType.STRING);
             cell.setCellValue(hd.getTongTien());
          
-            cell = row.createCell(3, CellType.NUMERIC);
+            cell = row.createCell(2, CellType.NUMERIC);
             cell.setCellValue(hd.getPhieukhambenh().getNhanvien().getTen());
+            
+            row = sheet.createRow(list.size()+1);
+            cell = row.createCell(1, CellType.FORMULA);
+            cell.setCellFormula("SUM(B2:B"+( list.size()+1)+")");
            
         }
         File file = new File("E:/KhoaLuan/HoaDon.xls");
