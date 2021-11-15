@@ -44,9 +44,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanService;
-import Service.LichHenService;
-import Service.PhieuKhamService;
+import Service.BenhNhanDAO;
+import Service.LichHenDAO;
+import Service.PhieuKhamDAO;
 import enity.BenhNhan;
 import enity.LichHen;
 import enity.NhanVien;
@@ -62,9 +62,9 @@ public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseL
 	private BenhNhan mBenhNhan;
 	private LichHen mLichHen;
 	
-	private LichHenService lichHenService;
-	private PhieuKhamService phieuKhamService;
-	private BenhNhanService benhnhanservice;
+	private LichHenDAO lichHenService;
+	private PhieuKhamDAO phieuKhamService;
+	private BenhNhanDAO benhnhanservice;
 	
 	private JPanel Jpanel_1;
 	private JLabel lbldiaChiBN;
@@ -98,9 +98,9 @@ public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseL
 	public GUICapNhatPhieuKham(TaiKhoan taikhoan,NhanVien nhanvien) {
 		this.mTaiKhoan=taikhoan;
 		this.mNhanVien=nhanvien;
-		this.benhnhanservice=new BenhNhanService();
-		this.phieuKhamService=new PhieuKhamService();
-		this.lichHenService=new LichHenService();
+		this.benhnhanservice=new BenhNhanDAO();
+		this.phieuKhamService=new PhieuKhamDAO();
+		this.lichHenService=new LichHenDAO();
 		
 		this.pkb=null;
 		this.pkketqua=new PhieuKhambenh();

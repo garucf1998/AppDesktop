@@ -15,7 +15,7 @@ import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import Service.TaiKhoanService;
+import Service.TaiKhoanDAO;
 import enity.NhanVien;
 import enity.TaiKhoan;
 
@@ -109,7 +109,7 @@ public class GUIDoiMatKhau extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object o=e.getSource();
-		TaiKhoanService control = new TaiKhoanService();
+		TaiKhoanDAO control = new TaiKhoanDAO();
 		char[] pass1 = txtmatKhauCu.getPassword();
 		String password1 = String.copyValueOf(pass1);
 		char[] pass2 = txtmatKhauMoi.getPassword();

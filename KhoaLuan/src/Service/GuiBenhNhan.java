@@ -16,10 +16,10 @@ import enity.LichHen;
 public class GuiBenhNhan {
 
 	 private final static String WIRE_LEVEL_ENDPOINT
-	 ="ssl://b-e2537eb7-0dac-4607-8905-d26162943aa4-1.mq.us-east-2.amazonaws.com:61617";
+	 ="ssl://b-7a4f3204-402d-4064-bc42-5106ba4996b5-1.mq.us-east-2.amazonaws.com:61617";
 	 private final static String ACTIVE_MQ_USERNAME = "admin";
 	 private final static String ACTIVE_MQ_PASSWORD = "admin20212021";
-	 private BenhNhanService control=new BenhNhanService();
+	 private BenhNhanDAO control=new BenhNhanDAO();
 	
 
 

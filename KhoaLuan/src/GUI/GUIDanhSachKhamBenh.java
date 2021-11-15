@@ -25,10 +25,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanService;
+import Service.BenhNhanDAO;
 import Service.GuiBenhNhan;
-import Service.LichHenService;
-import Service.NhanVienService;
+import Service.LichHenDAO;
+import Service.NhanVienDAO;
 import enity.BenhNhan;
 import enity.LichHen;
 import enity.NhanVien;
@@ -50,7 +50,7 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 	private NhanVien mNhanVien;
 	private BenhNhan mBenhNhan;
 	private LichHen mLichHen;
-	private LichHenService lichhenservice;
+	private LichHenDAO lichhenservice;
 	private JButton btnhuy,btnChuyen;
 	private JButton btncapnhat;
 
@@ -64,7 +64,7 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 		this.mTaiKhoan=taikhoan;
 		this.mNhanVien=nhanvien;
 		this.mLichHen=new LichHen();
-		this.lichhenservice=new LichHenService();
+		this.lichhenservice=new LichHenDAO();
 		
 		setTitle("Danh sách bênh nhân khám bệnh");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
@@ -148,7 +148,7 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				mLichHen.setTrangThai("Đang chờ khám");
+				mLichHen.setTrangThai("1");
 				try {
 					lichhenservice.PUTLichHen(mLichHen);
 				} catch (IOException e1) {

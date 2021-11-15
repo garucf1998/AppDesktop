@@ -9,8 +9,8 @@ public class PhieuKhambenh {
     private String chanDoan;
     private String trieuChung;
     private boolean trangThai;
-    private NhanVien nhanVien;
-    private BenhNhan benhNhan;
+    private NhanVien nhanvien;
+    private BenhNhan benhnhan;
     private DonThuoc donthuoc;
     private List<PhieuDichVu> dsphieudichvu;
     private Float tienKham;
@@ -42,19 +42,19 @@ public class PhieuKhambenh {
     }
 
     public NhanVien getNhanvien() {
-        return nhanVien;
+        return nhanvien;
     }
 
     public void setNhanvien(NhanVien nhanVien) {
-        this.nhanVien = nhanVien;
+        this.nhanvien = nhanVien;
     }
 
     public BenhNhan getBenhnhan() {
-        return benhNhan;
+        return benhnhan;
     }
 
     public void setBenhnhan(BenhNhan benhNhan) {
-        this.benhNhan = benhNhan;
+        this.benhnhan = benhNhan;
     }
 
     public DonThuoc getDonthuoc() {

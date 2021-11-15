@@ -42,13 +42,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.ChiTietDonThuocService;
-import Service.DonThuocService;
-import Service.HoaDonService;
-import Service.LichHenService;
-import Service.PhieuDichVuService;
-import Service.PhieuKhamService;
-import Service.ThuocService;
+import Service.ChiTietDonThuocDAO;
+import Service.DonThuocDAO;
+import Service.HoaDonDAO;
+import Service.LichHenDAO;
+import Service.PhieuDichVuDAO;
+import Service.PhieuKhamDAO;
+import Service.ThuocDAO;
 import enity.ChiTietDonThuoc;
 import enity.DonThuoc;
 import enity.HoaDon;
@@ -77,13 +77,13 @@ public class GUIDonThuoc extends JFrame implements ActionListener,MouseListener{
 	private NhanVien mNhanVien;
 	private LichHen mLichHen;
 	
-	private ThuocService thuocService;
-	private ChiTietDonThuocService chiTietDonThuocService;
-	private DonThuocService donThuocService;
-	private PhieuKhamService phieuKhamService;
-	private HoaDonService hoaDonService;
-	private LichHenService lichHenService;
-	private PhieuDichVuService phieuDichVuService;
+	private ThuocDAO thuocService;
+	private ChiTietDonThuocDAO chiTietDonThuocService;
+	private DonThuocDAO donThuocService;
+	private PhieuKhamDAO phieuKhamService;
+	private HoaDonDAO hoaDonService;
+	private LichHenDAO lichHenService;
+	private PhieuDichVuDAO phieuDichVuService;
 	
 	private DonThuoc dt,dtpost;
 	
@@ -98,13 +98,13 @@ public class GUIDonThuoc extends JFrame implements ActionListener,MouseListener{
 		this.mNhanVien=nhanvien;
 		this.mTaiKhoan=taikhoan;
 		this.mLichHen=lichhen;
-		this.thuocService=new ThuocService();
-		this.lichHenService=new LichHenService();
-		this.chiTietDonThuocService=new ChiTietDonThuocService();
-		this.donThuocService=new DonThuocService();
-		this.phieuKhamService= new PhieuKhamService();
-		this.hoaDonService=new HoaDonService();
-		this.phieuDichVuService=new PhieuDichVuService();
+		this.thuocService=new ThuocDAO();
+		this.lichHenService=new LichHenDAO();
+		this.chiTietDonThuocService=new ChiTietDonThuocDAO();
+		this.donThuocService=new DonThuocDAO();
+		this.phieuKhamService= new PhieuKhamDAO();
+		this.hoaDonService=new HoaDonDAO();
+		this.phieuDichVuService=new PhieuDichVuDAO();
 		
 		this.dt=new DonThuoc();
 		this.dtpost=new DonThuoc();

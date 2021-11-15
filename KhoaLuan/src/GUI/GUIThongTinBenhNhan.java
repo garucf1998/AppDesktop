@@ -41,8 +41,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.toedter.calendar.JDateChooser;
 
-import Service.BenhNhanService;
-import Service.TaiKhoanService;
+import Service.BenhNhanDAO;
+import Service.TaiKhoanDAO;
 import enity.BenhNhan;
 import enity.NhanVien;
 import enity.TaiKhoan;
@@ -88,14 +88,14 @@ public class GUIThongTinBenhNhan extends JFrame implements MouseListener,ActionL
 
 	private NhanVien mNhanVien;
 	private TaiKhoan mTaiKhoan;
-	private BenhNhanService control;
+	private BenhNhanDAO control;
 	/**
 	 * Create the frame.
 	 */
 	public GUIThongTinBenhNhan(TaiKhoan taikhoan,NhanVien nhanvien) {
 		this.mNhanVien=nhanvien;
 		this.mTaiKhoan=taikhoan;
-		control=new BenhNhanService();
+		control=new BenhNhanDAO();
 		setTitle("Quản lí thông tin bệnh nhân");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -421,7 +421,7 @@ public class GUIThongTinBenhNhan extends JFrame implements MouseListener,ActionL
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		BenhNhanService benhNhanController=new BenhNhanService();
+		BenhNhanDAO benhNhanController=new BenhNhanDAO();
 		Object o=e.getSource();
 		if(o==btnhuy)
 		{
@@ -466,7 +466,7 @@ public class GUIThongTinBenhNhan extends JFrame implements MouseListener,ActionL
 				TaiKhoan tk=new TaiKhoan();
 				tk.setUsername(txtTaiThoan.getText());
 				tk.setPassword("123456");
-				TaiKhoanService taikhoanController=new TaiKhoanService();
+				TaiKhoanDAO taikhoanController=new TaiKhoanDAO();
 				try {
 					tk.setRole(benhNhanController.GetOneRole((long) 5));
 					
@@ -598,7 +598,7 @@ public class GUIThongTinBenhNhan extends JFrame implements MouseListener,ActionL
 		btnsua.setEnabled(true);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
-		BenhNhanService control=new BenhNhanService();
+		BenhNhanDAO control=new BenhNhanDAO();
 		
 		try {
 			date = df.parse(table.getValueAt(row, 6).toString());

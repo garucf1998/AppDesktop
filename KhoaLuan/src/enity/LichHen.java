@@ -17,7 +17,7 @@ public class LichHen {
 
     private BenhNhan benhNhan;
 
-    private NhanVien nhanVien;
+   
 
     public boolean isHinhThuc() {
         return hinhThuc;
@@ -76,13 +76,7 @@ public class LichHen {
     }
    
 
-    public NhanVien getNhanvien() {
-        return nhanVien;
-    }
-
-    public void setNhanvien(NhanVien nhanVien) {
-        this.nhanVien = nhanVien;
-    }
+   
 
     public LichHen() {
     }

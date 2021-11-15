@@ -43,9 +43,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanService;
-import Service.PhieuDichVuService;
-import Service.PhieuKhamService;
+import Service.BenhNhanDAO;
+import Service.PhieuDichVuDAO;
+import Service.PhieuKhamDAO;
 import enity.BenhNhan;
 import enity.DichVu;
 import enity.NhanVien;
@@ -64,9 +64,9 @@ public class GUIPhieuDichVu extends JFrame implements MouseListener,ActionListen
 	private TaiKhoan mTaiKhoan;
 	private NhanVien mNhanVien;
 	private BenhNhan mBenhNhan;
-	private PhieuKhamService phieuKhamService;
-	private PhieuDichVuService phieudichvuService;
-	private BenhNhanService benhnhanservice;
+	private PhieuKhamDAO phieuKhamService;
+	private PhieuDichVuDAO phieudichvuService;
+	private BenhNhanDAO benhnhanservice;
 	
 	private JPanel Jpanel_1;
 	private JLabel lbldiaChiBN;
@@ -96,9 +96,9 @@ public class GUIPhieuDichVu extends JFrame implements MouseListener,ActionListen
 	public GUIPhieuDichVu(TaiKhoan taikhoan,NhanVien nhanvien) {
 		this.mTaiKhoan=taikhoan;
 		this.mNhanVien=nhanvien;
-		this.benhnhanservice=new BenhNhanService();
-		this.phieuKhamService=new PhieuKhamService();
-		this.phieudichvuService=new PhieuDichVuService();
+		this.benhnhanservice=new BenhNhanDAO();
+		this.phieuKhamService=new PhieuKhamDAO();
+		this.phieudichvuService=new PhieuDichVuDAO();
 		this.pkb=null;
 		
 		setTitle("Phiếu khám bệnh");

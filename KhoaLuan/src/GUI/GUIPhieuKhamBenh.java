@@ -40,8 +40,8 @@ import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
 
-import Service.BenhNhanService;
-import Service.PhieuKhamService;
+import Service.BenhNhanDAO;
+import Service.PhieuKhamDAO;
 import enity.BenhNhan;
 import enity.DonThuoc;
 import enity.LichHen;
@@ -70,8 +70,8 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 	private BenhNhan mBenhNhan;
 	private LichHen mLichHen;
 	 
-	private PhieuKhamService phieuKhamService;
-	private BenhNhanService benhnhanservice;
+	private PhieuKhamDAO phieuKhamService;
+	private BenhNhanDAO benhnhanservice;
 	
 	private JPanel Jpanel_1;
 	private JLabel lbldiaChiBN;
@@ -102,8 +102,8 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 		this.mNhanVien=nhanvien;
 		this.mBenhNhan=benhnhan;
 		this.mLichHen=lichhen;
-		this.benhnhanservice=new BenhNhanService();
-		this.phieuKhamService=new PhieuKhamService();
+		this.benhnhanservice=new BenhNhanDAO();
+		this.phieuKhamService=new PhieuKhamDAO();
 		
 		setTitle("Phiếu khám bệnh");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));		
@@ -357,11 +357,14 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 			pk.setTienKham((float) 40000);
 			pk.setChanDoan(tatChanDoan.getText());
 			pk.setTrieuChung(tatTrieuChung.getText());
+			System.out.println(pk.getBenhnhan().getTen());
+			System.out.println(pk.getNhanvien().getTen());
 			if(rdbhoanthanh.isSelected())
 			{
 				pk.setTrangThai(true);
 				try {
 					pkketqua= phieuKhamService.POSTPhieuKhamBenhReturnPK(pk);
+					
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

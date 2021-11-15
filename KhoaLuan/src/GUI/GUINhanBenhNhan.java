@@ -31,8 +31,8 @@ import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
 
-import Service.BenhNhanService;
-import Service.LichHenService;
+import Service.BenhNhanDAO;
+import Service.LichHenDAO;
 import Service.NhanBenhNhan;
 import enity.BenhNhan;
 import enity.LichHen;
@@ -277,7 +277,7 @@ public class GUINhanBenhNhan extends JFrame implements ActionListener{
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String date="";
         date = formatter.format(java.util.Calendar.getInstance().getTime());
-		BenhNhanService control = new BenhNhanService();
+		BenhNhanDAO control = new BenhNhanDAO();
 		if(o==btnnhan)
 		{
 			try {

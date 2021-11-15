@@ -36,13 +36,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanService;
-import Service.ChiTietDonThuocService;
-import Service.HoaDonService;
-import Service.LichHenService;
-import Service.NhanVienService;
-import Service.PhieuDichVuService;
-import Service.PhieuKhamService;
+import Service.BenhNhanDAO;
+import Service.ChiTietDonThuocDAO;
+import Service.HoaDonDAO;
+import Service.LichHenDAO;
+import Service.NhanVienDAO;
+import Service.PhieuDichVuDAO;
+import Service.PhieuKhamDAO;
 import enity.BenhNhan;
 import enity.ChiTietDonThuoc;
 import enity.DonThuoc;
@@ -64,11 +64,11 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 	
 	private List<BenhNhan> listBN;
 	
-	private BenhNhanService benhnhanservice;
-	private HoaDonService hoaDonService;
-	private ChiTietDonThuocService chiTietDonThuocService;
-	private PhieuKhamService phieuKhamService;
-	private PhieuDichVuService phieuDichVuService;
+	private BenhNhanDAO benhnhanservice;
+	private HoaDonDAO hoaDonService;
+	private ChiTietDonThuocDAO chiTietDonThuocService;
+	private PhieuKhamDAO phieuKhamService;
+	private PhieuDichVuDAO phieuDichVuService;
 	
 	private JComboBox comboBox;
 	
@@ -90,11 +90,11 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 	 * Create the frame.
 	 */
 	public GUIHoaDon(TaiKhoan taikhoan,NhanVien nhanvien) {
-		this.benhnhanservice=new BenhNhanService();
-		this.chiTietDonThuocService = new ChiTietDonThuocService();
-		this.hoaDonService=new HoaDonService();
-		this.phieuKhamService=new PhieuKhamService();
-		this.phieuDichVuService = new PhieuDichVuService();
+		this.benhnhanservice=new BenhNhanDAO();
+		this.chiTietDonThuocService = new ChiTietDonThuocDAO();
+		this.hoaDonService=new HoaDonDAO();
+		this.phieuKhamService=new PhieuKhamDAO();
+		this.phieuDichVuService = new PhieuDichVuDAO();
 		this.mHoaDon=new HoaDon();
 		this.mTaiKhoan=taikhoan;
 		this.mNhanVien=nhanvien;
@@ -256,6 +256,7 @@ public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 		table.addMouseListener(this);
 		btnhuy.addActionListener(this);
 		btnluu.addActionListener(this);
+		
 		
 	}
 

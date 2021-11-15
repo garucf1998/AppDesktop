@@ -37,8 +37,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.toedter.calendar.JDateChooser;
 
-import Service.NhanVienService;
-import Service.TaiKhoanService;
+import Service.NhanVienDAO;
+import Service.TaiKhoanDAO;
 import enity.NhanVien;
 import enity.Role;
 import enity.TaiKhoan;
@@ -85,14 +85,14 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 	private NhanVien mNhanVien;
 	private TaiKhoan mTaiKhoan;
 	private int idRole;
-	private NhanVienService control;
-	private TaiKhoanService taikhoanController;
+	private NhanVienDAO control;
+	private TaiKhoanDAO taikhoanController;
 	/**
 	 * Create the frame.
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public GUIThongTinNhanVien(TaiKhoan taikhoan,NhanVien nhanvien) {
-		control=new NhanVienService();
+		control=new NhanVienDAO();
 		this.mTaiKhoan=taikhoan;
 		this.mNhanVien=nhanvien;
 		setTitle("Quản lí thông tin nhân viên");
@@ -397,7 +397,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 		 comboBoxRole = new JComboBox();
 		
 		
-		TaiKhoanService control=new TaiKhoanService();
+		TaiKhoanDAO control=new TaiKhoanDAO();
 		list= new ArrayList<Role>();
 		try {
 			list=control.GetAllRole();
@@ -443,7 +443,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		NhanVienService nhanVienController=new NhanVienService();
+		NhanVienDAO nhanVienController=new NhanVienDAO();
 		Object o=e.getSource();
 		if(o==btnhuy)
 		{
@@ -490,7 +490,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 				TaiKhoan tk=new TaiKhoan();
 				tk.setUsername(txtTaiThoan.getText());
 				tk.setPassword("123456");
-				taikhoanController=new TaiKhoanService();
+				taikhoanController=new TaiKhoanDAO();
 				
 				tk.setRole(list.get((comboBoxRole.getSelectedIndex())));
 					
@@ -621,7 +621,7 @@ public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionL
 		comboBoxRole.setEnabled(false);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
-		NhanVienService control=new NhanVienService();
+		NhanVienDAO control=new NhanVienDAO();
 		
 		try {
 			date = df.parse(table.getValueAt(row, 6).toString());

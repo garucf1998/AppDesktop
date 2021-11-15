@@ -43,11 +43,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanService;
-import Service.LichHenService;
-import Service.NhanVienService;
-import Service.PhieuDichVuService;
-import Service.PhieuKhamService;
+import Service.BenhNhanDAO;
+import Service.LichHenDAO;
+import Service.NhanVienDAO;
+import Service.PhieuDichVuDAO;
+import Service.PhieuKhamDAO;
 import enity.BenhNhan;
 import enity.DichVu;
 import enity.LichHen;
@@ -93,10 +93,10 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 	private TaiKhoan mTaiKhoan;
 	private NhanVien mNhanVien,mBacSy;
 	private BenhNhan mBenhNhan;
-	private BenhNhanService benhnhanservice;
-	private NhanVienService nhanvienservice;
-	private LichHenService lichhenservice;
-	private PhieuKhamService phieuKhamService;
+	private BenhNhanDAO benhnhanservice;
+	private NhanVienDAO nhanvienservice;
+	private LichHenDAO lichhenservice;
+	private PhieuKhamDAO phieuKhamService;
 	
 	private JPanel Jpanel_1;
 	private JLabel lbldiaChiBN;
@@ -133,10 +133,10 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 	public GUIDatLichKham(TaiKhoan taikhoan,NhanVien nhanvien) {
 		this.mTaiKhoan=taikhoan;
 		this.mNhanVien=nhanvien;
-		this.benhnhanservice=new BenhNhanService();
-		this.lichhenservice=new LichHenService();
-		this.nhanvienservice = new NhanVienService();
-		this.phieuKhamService=new PhieuKhamService();
+		this.benhnhanservice=new BenhNhanDAO();
+		this.lichhenservice=new LichHenDAO();
+		this.nhanvienservice = new NhanVienDAO();
+		this.phieuKhamService=new PhieuKhamDAO();
 		
 		setTitle("Đặt lịch khám");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));		
@@ -487,10 +487,6 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				String hinhThuc=null;
 				String trangthai=null;
 				String nhanvien=null;
-				if(pk.getNhanvien()==null)
-					nhanvien="";
-				else
-					nhanvien=pk.getNhanvien().getTen();
 				if(pk.isHinhThuc())
 					hinhThuc="Đặt lịch";
 				else
@@ -527,7 +523,6 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			e1.printStackTrace();
 		}	
 		lichHen.setBenhNhan(mBenhNhan);
-		lichHen.setNhanvien(mBacSy);
 		lichHen.setThoiGian(java.util.Calendar.getInstance().getTime());
 		lichHen.setHinhThuc(false);
 		lichHen.setTrieuChung(tattrieuchung.getText());
@@ -603,7 +598,6 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				trangthai="3";
 			lh.setTrangThai(trangthai);
 			
-			lh.setNhanvien(mBacSy);
 			lh.setTrieuChung(tattrieuchung.getText());
 			lh.setGhiChu(tatghichu.getText());
 			

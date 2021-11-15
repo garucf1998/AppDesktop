@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
-import Service.NhanVienService;
-import Service.TaiKhoanService;
+import Service.NhanVienDAO;
+import Service.TaiKhoanDAO;
 import enity.NhanVien;
 import enity.TaiKhoan;
 
@@ -40,8 +40,8 @@ public class GUIDangNhap extends JFrame {
 	private JPasswordField txtmatKhau;
 	private JButton btnThoat;
 	private JButton btndangNhap;
-	private TaiKhoanService taiKhoanService;
-	private NhanVienService nhanVienService;
+	private TaiKhoanDAO taiKhoanService;
+	private NhanVienDAO nhanVienService;
 
 	/**
 	 * Launch the application.
@@ -147,8 +147,8 @@ public class GUIDangNhap extends JFrame {
 		btnThoat.setBounds(317, 215, 164, 41);
 		panel.add(btnThoat);
 		
-		taiKhoanService=new TaiKhoanService();
-		nhanVienService=new NhanVienService();
+		taiKhoanService=new TaiKhoanDAO();
+		nhanVienService=new NhanVienDAO();
 	}
 	@SuppressWarnings("unlikely-arg-type")
 	private void Dangnhap() {
