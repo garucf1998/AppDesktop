@@ -16,7 +16,7 @@ import org.apache.poi.ss.util.CellReference;
 
 import enity.HoaDon;
 
-public class GhiExcel {
+public class GhiExcelHoaDon {
 	
 	private static HSSFCellStyle createStyleForTitle(HSSFWorkbook workbook) {
         HSSFFont font = workbook.createFont();
@@ -25,7 +25,7 @@ public class GhiExcel {
         style.setFont(font);
         return style;
 	}
-	public static void main(String[] args) throws IOException {
+	public static void main() throws IOException {
 
 		HoaDonDAO hoadonDao = new HoaDonDAO();
         HSSFWorkbook workbook = new HSSFWorkbook();
@@ -40,22 +40,32 @@ public class GhiExcel {
         HSSFCellStyle style = createStyleForTitle(workbook);
 
         row = sheet.createRow(rownum);
-
+        
        
         cell = row.createCell(0, CellType.STRING);
         cell.setCellValue("ID");
         cell.setCellStyle(style);
-       
+        
         cell = row.createCell(1, CellType.STRING);
-        cell.setCellValue("Tổng tiền");
+        cell.setCellValue("Tên nhân viên");
         cell.setCellStyle(style);
         
         cell = row.createCell(2, CellType.STRING);
-        cell.setCellValue("Tên nhân viên");
+        cell.setCellValue("Tên bệnh nhân");
+        cell.setCellStyle(style);
+        
+        cell = row.createCell(3, CellType.STRING);
+        cell.setCellValue("Chuẩn đoán bệnh");
         cell.setCellStyle(style);
       
-        
+        cell = row.createCell(4, CellType.STRING);
+        cell.setCellValue("Tổng tiền");
+        cell.setCellStyle(style);
 
+        for (int i = 0; i < 5; i++) {
+            sheet.autoSizeColumn(i);
+        }
+        
         // Data
         for (HoaDon hd : list) {
             rownum++;
@@ -65,14 +75,24 @@ public class GhiExcel {
             cell.setCellValue(hd.getId());
    
             cell = row.createCell(1, CellType.STRING);
-            cell.setCellValue(hd.getTongTien());
-         
-            cell = row.createCell(2, CellType.NUMERIC);
             cell.setCellValue(hd.getPhieukhambenh().getNhanvien().getTen());
             
+            cell = row.createCell(2, CellType.STRING);
+            cell.setCellValue(hd.getPhieukhambenh().getBenhnhan().getTen());
+            
+            cell = row.createCell(3, CellType.STRING);
+            cell.setCellValue(hd.getPhieukhambenh().getChanDoan());
+            
+            cell = row.createCell(4, CellType.STRING);
+            cell.setCellValue(hd.getTongTien());
+            
             row = sheet.createRow(list.size()+1);
-            cell = row.createCell(1, CellType.FORMULA);
-            cell.setCellFormula("SUM(B2:B"+( list.size()+1)+")");
+            
+            cell = row.createCell(3, CellType.STRING);
+            cell.setCellValue("Tổng thu thập : ");
+            
+            cell = row.createCell(4, CellType.FORMULA);
+            cell.setCellFormula("SUM(E2:E"+( list.size()+1)+")");
            
         }
         File file = new File("E:/KhoaLuan/HoaDon.xls");

@@ -141,7 +141,7 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 			removeTable();
 			updateTableData();
 		}else if(o==btnChuyen) {
-			if(mLichHen!=null) {
+			if(mLichHen!=null && mLichHen.getTrangThai().equals("3")) {
 				try {
 					gui.sendMessage(mLichHen, date);
 				} catch (JMSException e1) {
@@ -155,6 +155,9 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			}
+			else {
+				
 			}
 			btnChuyen.setEnabled(false);
 		}

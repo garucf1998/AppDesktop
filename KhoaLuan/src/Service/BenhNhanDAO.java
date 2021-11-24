@@ -39,7 +39,7 @@ public class BenhNhanDAO {
 	static String GET_BENH_NHAN_THEO_USERNAME=url+"/benhnhan/getbytaikhoan";
 	static String POST_BENH_NHAN=url+"/benhnhan/insert";
 	static String GET_ONE_ROLE=url+"/role/getone/5";
-	static String GET_BENH_NHAN_BY_LICH_HEN=url+"/lichhen/getlichhen";
+	static String GET_BENH_NHAN_BY_PK=url+"/phieukham/listBN";
 	
 	
 	/**
@@ -461,9 +461,9 @@ public class BenhNhanDAO {
 	 * @decription: Lấy danh sánh bênh nhân được gọi về từ RestFullAPI
 	 * */
 	//[START GetAll]
-	public  List<String>  GetBenhNhanByLichHen(String date,Long id) throws IOException {
+	public  List<String>  GetBenhNhanByPKChuaHoanThanh(String date) throws IOException {
 		List<String>getall=new ArrayList<>();
-	    URL urlForGetRequest = new URL(GET_BENH_NHAN_BY_LICH_HEN+"/"+date+"/"+id);
+	    URL urlForGetRequest = new URL(GET_BENH_NHAN_BY_PK+"/"+date);
 	    String readLine = null;
 	    HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
 	    conection.setRequestMethod("GET"); 

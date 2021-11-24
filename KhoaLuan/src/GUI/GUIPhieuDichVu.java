@@ -174,7 +174,7 @@ public class GUIPhieuDichVu extends JFrame implements MouseListener,ActionListen
 				String todayAsString = df.format(today);
 				
 				try {
-					 listBN= benhnhanservice.GetBenhNhanByLichHen(todayAsString,mNhanVien.getId());
+					 listBN= benhnhanservice.GetBenhNhanByPKChuaHoanThanh(todayAsString);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

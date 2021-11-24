@@ -174,22 +174,12 @@ public class GUIPhieuKhamBenh extends JFrame implements MouseListener,ActionList
 				lblmaBN.setBounds(33, 30, 86, 20);
 				Jpanel_1.add(lblmaBN);
 				
-				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-				Date today = Calendar.getInstance().getTime();       
-				String todayAsString = df.format(today);
 				
-				try {
-					 listBN= benhnhanservice.GetBenhNhanByLichHen(todayAsString,mNhanVien.getId());
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 				
 				
 				 comboBox = new JComboBox();
 				
-				for(int i=0;i<listBN.size();i++)
-					comboBox.addItem(listBN.get(i));
+				
 				comboBox.setSelectedItem(null);
 				comboBox.setBounds(152, 30, 268, 20);
 				Jpanel_1.add(comboBox);
