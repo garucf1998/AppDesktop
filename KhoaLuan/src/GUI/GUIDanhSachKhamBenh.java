@@ -25,14 +25,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanDAO;
-import Service.GuiBenhNhan;
-import Service.LichHenDAO;
-import Service.NhanVienDAO;
-import enity.BenhNhan;
-import enity.LichHen;
-import enity.NhanVien;
-import enity.TaiKhoan;
+import DAO.BenhNhanDAO;
+import DAO.GuiBenhNhan;
+import DAO.LichHenDAO;
+import DAO.NhanVienDAO;
+import Entity.BenhNhan;
+import Entity.LichHen;
+import Entity.NhanVien;
+import Entity.TaiKhoan;
 
 import javax.jms.JMSException;
 import javax.swing.ImageIcon;
@@ -141,7 +141,7 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 			removeTable();
 			updateTableData();
 		}else if(o==btnChuyen) {
-			if(mLichHen!=null && mLichHen.getTrangThai().equals("3")) {
+			if(mLichHen!=null && mLichHen.getTrangThai().equals("1")) {
 				try {
 					gui.sendMessage(mLichHen, date);
 				} catch (JMSException e1) {
@@ -177,12 +177,17 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 			e2.printStackTrace();
 		}
 		mBenhNhan=mLichHen.getBenhNhan();
-		if(!table.getValueAt(row, 4).toString().equals("Đã khám")||!table.getValueAt(row, 4).toString().equals("Đang chờ khám")) 
+		if(!table.getValueAt(row, 4).toString().equals("Đã khám")||!table.getValueAt(row, 4).toString().equals("Đang trong hàng đợi")||!table.getValueAt(row, 4).toString().equals("Vắng mặt")) 
 		{
 			btnChuyen.setEnabled(true);
 		}
 		else 
+			
+		{
+			btnChuyen.setEnabled(false);
 			JOptionPane.showMessageDialog(this,"Bệnh nhân này đã khám rồi !","Chú ý",JOptionPane.CLOSED_OPTION);
+			
+		}
 		
 	}
 
@@ -239,8 +244,10 @@ public class GUIDanhSachKhamBenh extends JFrame implements MouseListener, Action
 					trangthai="Đang chờ khám";
 				else if(pk.getTrangThai().equals("3"))
 					trangthai="Vắng mặt";
-				else 
+				else if(pk.getTrangThai().equals("2"))
 					trangthai="Đã khám";
+				else if(pk.getTrangThai().equals("4"))
+					trangthai="Đang trong hàng đợi";
 				String[] rowdata = { String.valueOf(pk.getMaLichHen()),pk.getGhiChu(),pk.getBenhNhan().getTen(),hinhThuc,trangthai};
 				datamodel.addRow(rowdata);
 			}

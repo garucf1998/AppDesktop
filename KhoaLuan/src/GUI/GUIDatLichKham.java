@@ -42,18 +42,6 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-
-import Service.BenhNhanDAO;
-import Service.LichHenDAO;
-import Service.NhanVienDAO;
-import Service.PhieuDichVuDAO;
-import Service.PhieuKhamDAO;
-import enity.BenhNhan;
-import enity.DichVu;
-import enity.LichHen;
-import enity.NhanVien;
-import enity.PhieuKhambenh;
-import enity.TaiKhoan;
 import javax.swing.JRadioButton;
 import java.awt.event.MouseAdapter;
 
@@ -61,6 +49,18 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import com.google.gson.Gson;
+
+import DAO.BenhNhanDAO;
+import DAO.LichHenDAO;
+import DAO.NhanVienDAO;
+import DAO.PhieuDichVuDAO;
+import DAO.PhieuKhamDAO;
+import Entity.BenhNhan;
+import Entity.DichVu;
+import Entity.LichHen;
+import Entity.NhanVien;
+import Entity.PhieuKhambenh;
+import Entity.TaiKhoan;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
@@ -106,7 +106,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 	private JLabel lblmaBN;
 	private JButton btnhuy,btnthem;
 	private JButton btnluu;
-	private JComboBox comboBox,comboBox_1;
+	private JComboBox comboBox;
 	
 	JRadioButton rdbtnNewRadioButton;
 	JRadioButton rdbtnNewRadioButton_2;
@@ -297,36 +297,9 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			comboBox.setEnabled(false);
 			tattrieuchung.setEnabled(false);
 			
-			JLabel lblmaBN_1 = new JLabel("Chọn bác sỹ :");
-			lblmaBN_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-			lblmaBN_1.setBounds(35, 24, 143, 20);
-			panel_1.add(lblmaBN_1);
 			
-			comboBox_1 = new JComboBox();
 			
-			listNV=new ArrayList<NhanVien>();
-			try {
-				listNV=nhanvienservice.GetNHanVienByRole((long) 2);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			for(int i=0;i<listNV.size();i++)
-				comboBox_1.addItem(listNV.get(i).getTen());
 		
-			comboBox_1.setSelectedItem(null);
-			comboBox_1.setEnabled(false);
-			comboBox_1.setBounds(211, 24, 179, 20);
-			panel_1.add(comboBox_1);
-			
-			comboBox_1.addItemListener(new ItemListener() {
-				public void itemStateChanged(ItemEvent e) {
-					for(int i =0;i<listNV.size();i++)
-						if(comboBox_1.getSelectedItem().equals(listNV.get(i).getTen()))
-							mBacSy=listNV.get(i);
-				}
-			});
-			
 			tatghichu = new JTextArea();
 			tatghichu.setEnabled(false);
 			tatghichu.setBounds(529, 24, 536, 38);
@@ -390,6 +363,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			table.addMouseListener(this);
 			
 			btncapnhat.setEnabled(false);
+			btnthem.setEnabled(true);
 			removeTable();
 			updateTableData();
 			
@@ -413,7 +387,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			rdbtnNewRadioButton.setSelected(false);
 			rdbtnNewRadioButton_2.setSelected(true);
 		}
-		comboBox_1.setSelectedItem(table.getValueAt(row, 3).toString());
+		
 		comboBox.setSelectedItem(table.getValueAt(row, 8));
 	}
 	
@@ -457,9 +431,28 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			
 			LuuLichKham();
 			
+			
 		}else if(o==btnthem)
 		{
-			Them();
+			if(btnthem.getText().equals("Thêm"))
+			{
+				comboBox.setEnabled(true);
+				
+				tatghichu.setEnabled(true);
+				tattrieuchung.setEnabled(true);
+				btnluu.setEnabled(true);
+				btncapnhat.setEnabled(false);
+				btnthem.setText("Hủy");
+			}else if(btnthem.getText().equals("Hủy"))
+			{
+				comboBox.setEnabled(false);
+				
+				tatghichu.setEnabled(false);
+				tattrieuchung.setEnabled(false);
+				btnluu.setEnabled(false);
+				btncapnhat.setEnabled(false);
+				btnthem.setText("Thêm");
+			}
 			
 		}else if(o==btncapnhat) {
 			CapNhat();
@@ -495,8 +488,10 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 					trangthai="Đang chờ khám";
 				else if(pk.getTrangThai().equals("3"))
 					trangthai="Vắng mặt";
-				else 
+				else if(pk.getTrangThai().equals("2"))
 					trangthai="Đã khám";
+				else if(pk.getTrangThai().equals("4"))
+					trangthai="Đang trong hàng đợi";
 				String[] rowdata = { String.valueOf(pk.getMaLichHen()),pk.getGhiChu(),benhnhanservice.doichuoitungay(pk.getThoiGian()),nhanvien,pk.getBenhNhan().getTen(),pk.getTrieuChung(),hinhThuc,trangthai,String.valueOf(pk.getBenhNhan().getId())};
 				datamodel.addRow(rowdata);
 			}
@@ -510,7 +505,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		tattrieuchung.setText("");
 		tatghichu.setText("");
 		comboBox.setSelectedItem(null);
-		comboBox_1.setSelectedItem(null);
+		
 	}
 	public void LuuLichKham() {
 		LichHen lichHen= new LichHen();
@@ -557,25 +552,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			
 		}
 	}
-	public void Them(){
-		if(btnthem.getText().equals("Thêm"))
-		{
-			comboBox.setEnabled(true);
-			comboBox_1.setEnabled(true);
-			tatghichu.setEnabled(true);
-			tattrieuchung.setEnabled(true);
-			btnluu.setEnabled(true);
-			btnthem.setText("Hủy");
-		}else if(btnthem.getText().equals("Hủy"))
-		{
-			comboBox.setEnabled(false);
-			comboBox_1.setEnabled(false);
-			tatghichu.setEnabled(false);
-			tattrieuchung.setEnabled(false);
-			btnluu.setEnabled(false);
-			btnthem.setText("Thêm");
-		}
-	}
+	
 	public void CapNhat() {
 		if(btncapnhat.getText().equals("Cập nhật"))
 		{
@@ -614,25 +591,5 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			}
 		}
 	}
-	public void Send(BenhNhan a) throws Exception {
-		Date date=java.util.Calendar.getInstance().getTime(); 
-		ConnectionFactory conAMQ = new ActiveMQConnectionFactory();
-		Connection con = conAMQ.createConnection();
-		con.start();
-		
-		
-		Session session = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		Destination des = session.createQueue(String.valueOf(date));//input string
-		
-		MessageProducer mProducer = session.createProducer(des);
-		Gson gson = new Gson();
-    		    
-		String json = gson.toJson(a);
-		Message msg=session.createTextMessage();
-
-		msg=session.createTextMessage(json);
-		mProducer.send(msg);
-		session.close();
-		con.close();
-	}
+	
 }

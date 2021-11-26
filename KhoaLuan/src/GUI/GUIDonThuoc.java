@@ -42,21 +42,21 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.ChiTietDonThuocDAO;
-import Service.DonThuocDAO;
-import Service.HoaDonDAO;
-import Service.LichHenDAO;
-import Service.PhieuDichVuDAO;
-import Service.PhieuKhamDAO;
-import Service.ThuocDAO;
-import enity.ChiTietDonThuoc;
-import enity.DonThuoc;
-import enity.HoaDon;
-import enity.LichHen;
-import enity.NhanVien;
-import enity.PhieuKhambenh;
-import enity.TaiKhoan;
-import enity.Thuoc;
+import DAO.ChiTietDonThuocDAO;
+import DAO.DonThuocDAO;
+import DAO.HoaDonDAO;
+import DAO.LichHenDAO;
+import DAO.PhieuDichVuDAO;
+import DAO.PhieuKhamDAO;
+import DAO.ThuocDAO;
+import Entity.ChiTietDonThuoc;
+import Entity.DonThuoc;
+import Entity.HoaDon;
+import Entity.LichHen;
+import Entity.NhanVien;
+import Entity.PhieuKhambenh;
+import Entity.TaiKhoan;
+import Entity.Thuoc;
 
 public class GUIDonThuoc extends JFrame implements ActionListener,MouseListener{
 

@@ -40,14 +40,15 @@ import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
 
-import Service.BenhNhanDAO;
-import Service.PhieuKhamDAO;
-import enity.BenhNhan;
-import enity.DonThuoc;
-import enity.LichHen;
-import enity.NhanVien;
-import enity.PhieuKhambenh;
-import enity.TaiKhoan;
+import DAO.BenhNhanDAO;
+import DAO.PhieuKhamDAO;
+import Entity.BenhNhan;
+import Entity.DonThuoc;
+import Entity.LichHen;
+import Entity.NhanVien;
+import Entity.PhieuKhambenh;
+import Entity.TaiKhoan;
+
 import javax.swing.JScrollBar;
 import javax.swing.JTree;
 import javax.swing.JTextArea;

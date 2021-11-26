@@ -44,14 +44,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanDAO;
-import Service.LichHenDAO;
-import Service.PhieuKhamDAO;
-import enity.BenhNhan;
-import enity.LichHen;
-import enity.NhanVien;
-import enity.PhieuKhambenh;
-import enity.TaiKhoan;
+import DAO.BenhNhanDAO;
+import DAO.LichHenDAO;
+import DAO.PhieuKhamDAO;
+import Entity.BenhNhan;
+import Entity.LichHen;
+import Entity.NhanVien;
+import Entity.PhieuKhambenh;
+import Entity.TaiKhoan;
 
 public class GUICapNhatPhieuKham extends JFrame implements ActionListener,MouseListener{
 	private JPanel contentPane;

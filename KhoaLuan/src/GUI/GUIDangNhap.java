@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
-import Service.NhanVienDAO;
-import Service.TaiKhoanDAO;
-import enity.NhanVien;
-import enity.TaiKhoan;
+import DAO.NhanVienDAO;
+import DAO.TaiKhoanDAO;
+import Entity.NhanVien;
+import Entity.TaiKhoan;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;

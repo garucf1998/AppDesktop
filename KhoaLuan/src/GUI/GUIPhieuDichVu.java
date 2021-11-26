@@ -43,15 +43,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanDAO;
-import Service.PhieuDichVuDAO;
-import Service.PhieuKhamDAO;
-import enity.BenhNhan;
-import enity.DichVu;
-import enity.NhanVien;
-import enity.PhieuDichVu;
-import enity.PhieuKhambenh;
-import enity.TaiKhoan;
+import DAO.BenhNhanDAO;
+import DAO.PhieuDichVuDAO;
+import DAO.PhieuKhamDAO;
+import Entity.BenhNhan;
+import Entity.DichVu;
+import Entity.NhanVien;
+import Entity.PhieuDichVu;
+import Entity.PhieuKhambenh;
+import Entity.TaiKhoan;
 
 public class GUIPhieuDichVu extends JFrame implements MouseListener,ActionListener{
 

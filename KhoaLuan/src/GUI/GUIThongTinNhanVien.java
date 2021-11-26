@@ -37,11 +37,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.toedter.calendar.JDateChooser;
 
-import Service.NhanVienDAO;
-import Service.TaiKhoanDAO;
-import enity.NhanVien;
-import enity.Role;
-import enity.TaiKhoan;
+import DAO.NhanVienDAO;
+import DAO.TaiKhoanDAO;
+import Entity.NhanVien;
+import Entity.Role;
+import Entity.TaiKhoan;
 
 
 public class GUIThongTinNhanVien extends JFrame implements MouseListener,ActionListener{

@@ -15,9 +15,9 @@ import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import Service.TaiKhoanDAO;
-import enity.NhanVien;
-import enity.TaiKhoan;
+import DAO.TaiKhoanDAO;
+import Entity.NhanVien;
+import Entity.TaiKhoan;
 
 
 public class GUIDoiMatKhau extends JFrame implements ActionListener{

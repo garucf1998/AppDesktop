@@ -31,13 +31,13 @@ import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
 
-import Service.BenhNhanDAO;
-import Service.LichHenDAO;
-import Service.NhanBenhNhan;
-import enity.BenhNhan;
-import enity.LichHen;
-import enity.NhanVien;
-import enity.TaiKhoan;
+import DAO.BenhNhanDAO;
+import DAO.LichHenDAO;
+import DAO.NhanBenhNhan;
+import Entity.BenhNhan;
+import Entity.LichHen;
+import Entity.NhanVien;
+import Entity.TaiKhoan;
 
 import javax.swing.JTextArea;
 

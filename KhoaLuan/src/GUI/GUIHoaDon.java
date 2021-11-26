@@ -36,22 +36,22 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Service.BenhNhanDAO;
-import Service.ChiTietDonThuocDAO;
-import Service.HoaDonDAO;
-import Service.LichHenDAO;
-import Service.NhanVienDAO;
-import Service.PhieuDichVuDAO;
-import Service.PhieuKhamDAO;
-import enity.BenhNhan;
-import enity.ChiTietDonThuoc;
-import enity.DonThuoc;
-import enity.HoaDon;
-import enity.LichHen;
-import enity.NhanVien;
-import enity.PhieuDichVu;
-import enity.PhieuKhambenh;
-import enity.TaiKhoan;
+import DAO.BenhNhanDAO;
+import DAO.ChiTietDonThuocDAO;
+import DAO.HoaDonDAO;
+import DAO.LichHenDAO;
+import DAO.NhanVienDAO;
+import DAO.PhieuDichVuDAO;
+import DAO.PhieuKhamDAO;
+import Entity.BenhNhan;
+import Entity.ChiTietDonThuoc;
+import Entity.DonThuoc;
+import Entity.HoaDon;
+import Entity.LichHen;
+import Entity.NhanVien;
+import Entity.PhieuDichVu;
+import Entity.PhieuKhambenh;
+import Entity.TaiKhoan;
 
 public class GUIHoaDon extends JFrame implements ActionListener,MouseListener{
 
