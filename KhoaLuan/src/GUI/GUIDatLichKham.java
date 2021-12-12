@@ -146,6 +146,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -161,7 +162,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		Jpanel_1 = new JPanel();
 		Jpanel_1.setBounds(28, 59, 1104, 93);
 		contentPane.add(Jpanel_1);
-		Jpanel_1.setBackground(SystemColor.inactiveCaptionBorder);
+		Jpanel_1.setBackground(new Color(95, 158, 160));
 		Jpanel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thông tin bệnh nhân", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		Jpanel_1.setLayout(null);
 				
@@ -230,7 +231,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				
 				
 				
-				String[]headers = {"Mã","Ghi Chú","Thời Gian", "Người khám","Bệnh nhân","Triệu Chứng","Hình thức","Trạng thái","ID bệnh nhân"};
+				String[]headers = {"Mã","Ghi Chú","Thời Gian","Bệnh nhân","Triệu Chứng","Hình thức","Trạng thái","ID bệnh nhân"};
 				datamodel = new DefaultTableModel(headers,0);
 				contentPane.add(scrollPane= new JScrollPane(table = new JTable(datamodel)));
 				scrollPane.setBounds(51, 185, 1060, 109);
@@ -240,7 +241,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				JPanel panel_1 = new JPanel();
 				panel_1.setLayout(null);
 				panel_1.setBorder(new TitledBorder(null, "Lịch khám bệnh ", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				panel_1.setBackground(SystemColor.inactiveCaptionBorder);
+				panel_1.setBackground(new Color(95, 158, 160));
 				panel_1.setBounds(28, 316, 1106, 187);
 				contentPane.add(panel_1);
 				
@@ -277,18 +278,21 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				panel_1.add(tattrieuchung);
 				
 				btnhuy = new JButton("Quay Lại");
+				btnhuy.setBackground(new Color(102, 205, 170));
 				btnhuy.setIcon(new ImageIcon("Login-out-icon.png"));
 				btnhuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				btnhuy.setBounds(977, 564, 155, 57);
 				contentPane.add(btnhuy);
 				
 				btnluu = new JButton("Lưu");
+				btnluu.setBackground(new Color(102, 205, 170));
 				btnluu.setIcon(new ImageIcon("luu.png"));
 				btnluu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				btnluu.setBounds(767, 564, 155, 57);
 				contentPane.add(btnluu);
 				
 				btnthem = new JButton("Thêm");
+				btnthem.setBackground(new Color(102, 205, 170));
 				btnthem.setIcon(new ImageIcon("sua.png"));
 				btnthem.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				btnthem.setBounds(53, 564, 155, 57);
@@ -348,10 +352,11 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			panel_2.setBounds(28, 163, 1104, 147);
 			panel_2.setLayout(null);
 			panel_2.setBorder(new TitledBorder(null, "Danh sách lịch khám bệnh", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_2.setBackground(SystemColor.inactiveCaptionBorder);
+			panel_2.setBackground(new Color(95, 158, 160));
 			contentPane.add(panel_2);
 			
 			btncapnhat = new JButton("Cập nhật");
+			btncapnhat.setBackground(new Color(102, 205, 170));
 			btncapnhat.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			btncapnhat.setBounds(274, 564, 196, 57);
 			contentPane.add(btncapnhat);
@@ -376,8 +381,8 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		btncapnhat.setEnabled(true);
 		
 		tatghichu.setText(table.getValueAt(row, 1).toString());
-		tattrieuchung.setText(table.getValueAt(row, 5).toString());
-		if(table.getValueAt(row, 7).toString().equals("Đang chờ khám"))
+		tattrieuchung.setText(table.getValueAt(row, 4).toString());
+		if(table.getValueAt(row, 6).toString().equals("Đang chờ khám"))
 		{
 			rdbtnNewRadioButton_2.setSelected(false);
 			
@@ -388,7 +393,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			rdbtnNewRadioButton_2.setSelected(true);
 		}
 		
-		comboBox.setSelectedItem(table.getValueAt(row, 8));
+		comboBox.setSelectedItem(table.getValueAt(row, 7));
 	}
 	
 	@Override
@@ -430,7 +435,15 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 		{
 			
 			LuuLichKham();
+			removeTable();
+			updateTableData();
+			comboBox.setEnabled(false);
 			
+			tatghichu.setEnabled(false);
+			tattrieuchung.setEnabled(false);
+			btnluu.setEnabled(false);
+			btncapnhat.setEnabled(false);
+			btnthem.setText("Thêm");
 			
 		}else if(o==btnthem)
 		{
@@ -455,7 +468,27 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 			}
 			
 		}else if(o==btncapnhat) {
-			CapNhat();
+			if(btncapnhat.getText().equals("Cập nhật"))
+			{
+				comboBox.setEnabled(true);
+				
+				tatghichu.setEnabled(true);
+				tattrieuchung.setEnabled(true);
+				btnluu.setEnabled(false);
+				btnthem.setEnabled(false);
+				btncapnhat.setText("Xác nhận");
+			}else if(btncapnhat.getText().equals("Xác nhận"))
+			{
+				comboBox.setEnabled(false);
+				
+				tatghichu.setEnabled(false);
+				tattrieuchung.setEnabled(false);
+				btnthem.setEnabled(true);
+				btnluu.setEnabled(false);
+				btncapnhat.setText("Cập nhật");
+				CapNhat();
+			}
+			
 		}
 		
 	}
@@ -492,7 +525,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 					trangthai="Đã khám";
 				else if(pk.getTrangThai().equals("4"))
 					trangthai="Đang trong hàng đợi";
-				String[] rowdata = { String.valueOf(pk.getMaLichHen()),pk.getGhiChu(),benhnhanservice.doichuoitungay(pk.getThoiGian()),nhanvien,pk.getBenhNhan().getTen(),pk.getTrieuChung(),hinhThuc,trangthai,String.valueOf(pk.getBenhNhan().getId())};
+				String[] rowdata = { String.valueOf(pk.getMaLichHen()),pk.getGhiChu(),benhnhanservice.doichuoitungay(pk.getThoiGian()),pk.getBenhNhan().getTen(),pk.getTrieuChung(),hinhThuc,trangthai,String.valueOf(pk.getBenhNhan().getId())};
 				datamodel.addRow(rowdata);
 			}
 		}
@@ -504,7 +537,7 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 	public void XoaRong() {
 		tattrieuchung.setText("");
 		tatghichu.setText("");
-		comboBox.setSelectedItem(null);
+		
 		
 	}
 	public void LuuLichKham() {
@@ -545,6 +578,10 @@ public class GUIDatLichKham extends JFrame implements ActionListener,MouseListen
 				XoaRong();
 				removeTable();
 				updateTableData();
+			}
+			else {
+				JOptionPane.showMessageDialog(this,"Thêm lịch hẹn thất bại !","Chú ý",JOptionPane.CLOSED_OPTION);
+				
 			}
 		}
 		else {
