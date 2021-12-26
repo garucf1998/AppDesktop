@@ -14,7 +14,7 @@ import Entity.LichHen;
 public class GuiBenhNhan {
 
 	 private final static String WIRE_LEVEL_ENDPOINT
-	 =  "ssl://b-ae6a1247-2150-4cb4-ba90-a2a92b101091-1.mq.us-east-2.amazonaws.com:61617";
+	 =  "ssl://b-0a568e8a-e103-43cc-a7f7-6725f8bbbf72-1.mq.us-east-2.amazonaws.com:61617";
 	 private final static String ACTIVE_MQ_USERNAME = "admin";
 	 private final static String ACTIVE_MQ_PASSWORD = "admin20212021";
 	
